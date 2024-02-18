@@ -19,6 +19,9 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
+	
+	
+	
 
 </head>
 <body>
@@ -42,27 +45,34 @@
 			</ul>
 		</div>
 	</nav>
-	<h2>Öğrenci Güncelleme Sayfası</h2>
-
-
 	<div class="container">
+        <h2>Öğrenci Güncelleme Sayfası</h2>
 
+       <form th:action="@{/students/update}" method="post" th:object="${student}" id="updateStudentForm" >
+             <div class="form-group">
+                <label>Öğrenci ID</label>
+                <input type="text" class="form-control" th:field="*{id}" readonly="readonly">
+            </div>
+            
+            <div class="form-group">
+                <label>Öğrenci Adı</label>
+                <input type="text" class="form-control" th:field="*{firstName}" required>
+            </div>
+            <div class="form-group">
+                <label>Öğrenci Soyadı</label>
+                <input type="text" class="form-control" th:field="*{lastName}" required>
+            </div>
+            <div class="form-group">
+                <label>Okul Numarası</label>
+                <input type="text" class="form-control" th:field="*{schoolNumber}" required>
+            </div>
+            <div class="form-group">
+                <label>Sınıfı</label>
+                <input type="text" class="form-control" th:field="*{className}" required>
+            </div>
 
-	<form th:action="@{/students/update}" method="post"
-		th:object="${student}">
-		<div class="form-group">
-			<label>Öğrenci ID</label> 
-			<input class="form-control" id="disabledInput" type="text" th:field="*{id}"
-				readonly="readonly" />
-		</div>
-		<div class="form-group">
-			<label>Öğrenci Adı</label> <input type="text" class="form-control"
-				th:field="*{name}"> <small id="emailHelp"
-				class="form-text text-muted">Öğrenci Adı ve Soyadını giriniz</small>
-		</div>
-
-		<button type="submit" class="btn btn-primary">Kaydet</button>
-	</form>
-</div>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
+        </form>
+    </div>
 </body>
 </html>

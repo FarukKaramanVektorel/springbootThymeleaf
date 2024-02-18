@@ -47,26 +47,26 @@
 			<thead>
 				<tr>
 					<th scope="col">ID</th>
-					<th scope="col">Name</th>
+					<th scope="col">Adı Soyadı</th>					
+					<th scope="col">Okul No</th>
+					<th scope="col">Sınıf</th>
 					<th scope="col">Düzenle</th>
 					<th scope="col">Sil</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="student: ${students}">
-					<td th:text="${student.id}"></td>
-					<td th:text="${student.name}"></td>
-					<td><a th:href="@{/students/update/{id}(id=${student.id})}">
-							<img
-							src="https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png"
-							width="25" />
-					</a></td>
-					<td><a th:href="@{/students/delete/{id}(id=${student.id})}">
-							<img
-							src="https://cdn3.iconfinder.com/data/icons/font-awesome-regular-1/512/trash-can-512.png"
-							width="25" />
-					</a></td>
-				</tr>
+				 <tr th:each="student: ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.firstName} + ' ' + ${student.lastName}"></td>
+        <td th:text="${student.schoolNumber}"></td>
+        <td th:text="${student.className}"></td>
+        <td><a th:href="@{/students/update/{id}(id=${student.id})}">
+                <img src="https://cdn3.iconfinder.com/data/icons/feather-5/24/edit-512.png" width="25" />
+            </a></td>
+        <td><a th:href="@{/students/delete/{id}(id=${student.id})}">
+                <img src="https://cdn3.iconfinder.com/data/icons/font-awesome-regular-1/512/trash-can-512.png" width="25" />
+            </a></td>
+    </tr>
 
 			</tbody>
 		</table>

@@ -34,7 +34,7 @@ public class StudentController {
 	@PostMapping("/students/add")
 	public String addStudent(@ModelAttribute("newStudent") StudentDTO newStudent) {		
 		service.saveStudent(newStudent);
-		return "add";
+		return "redirect:/students/list";
 	}
 	
 	@GetMapping("/students/delete/{id}")

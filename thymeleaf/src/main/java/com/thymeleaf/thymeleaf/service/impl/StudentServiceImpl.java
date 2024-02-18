@@ -41,7 +41,10 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public void updateStudent(StudentDTO dto) {
 		StudentDTO sdto=getById(dto.getId());
-		sdto.setName(dto.getName());
+		sdto.setFirstName(dto.getFirstName());
+		sdto.setLastName(dto.getLastName());
+		sdto.setClassName(dto.getClassName());
+		sdto.setSchoolNumber(dto.getSchoolNumber());
 		Student st=StudentConverter.toEntity(sdto);
 		repository.save(st);
 
